@@ -3,7 +3,7 @@
 
 In this project, we train a model in a federated setting to detect online grooming in conversations. 
 You can refer to the following AAAI paper for more information about our implementation: https://arxiv.org/abs/2501.12537
-The folder code contains the code described below. The folder workshop contains the code we used for our 2022 NeurIPS workshop paper Early detection of sexual predators with federated learning.
+The folder code contains the code described below. The folder workshop contains the code we used for our 2022 NeurIPS workshop paper Early detection of sexual predators with federated learning. The folder models contained the trained federated model we discuss in the paper. 
 
 <h2> Dataset </h2>
 Our work is an extension of https://early-sexual-predator-detection.gitlab.io/, please refer to their publicly available code for the creation of the PANC dataset, the dataset used in our experiments. The PANC dataset requires access to the PAN12 dataset, that can be obtained from Zenodo (https://zenodo.org/record/3713280#.Y4_XdXbMLMY), and access to the ChatCoder 2 dataset which is available by request (https://www.chatcoder.com/data.html).
