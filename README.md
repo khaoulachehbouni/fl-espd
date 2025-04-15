@@ -2,7 +2,9 @@
 
 
 In this project, we train a model in a federated setting to detect online grooming in conversations. 
-You can refer to the following AAAI paper for more information about our implementation: https://arxiv.org/abs/2501.12537
+You can refer to the following AAAI paper for more information about our implementation: https://ojs.aaai.org/index.php/AAAI/article/view/35005
+
+
 The folder code contains the code described below. The folder workshop contains the code we used for our 2022 NeurIPS workshop paper Early detection of sexual predators with federated learning. The folder models contained the trained federated model we discuss in the paper. 
 
 <h2> Dataset </h2>
@@ -25,10 +27,10 @@ You can run the code using:
 python clientCombined.py --model_version name_of_model --output_dir path_to_store_model
 
 ```
-You can also change the other hyperparameter (number of clients, rounds of training, fraction of the clients that participate in the training. The default hyperparameters are the one used in the paper. 
+You can also change the other hyperparameter (number of clients, rounds of training, fraction of the clients participating in the training. The default hyperparameters are the one used in the paper. 
 
 <h2>Training with Privacy</h2>
-The default hyperparameters in the code are the one used for the results presented in the paper.
+The default hyperparameters in the code are the ones used for the results presented in the paper.
 
 <h3>Training with DP-SGD</h3>
 The files clientDP.py and utilsDP.py contains our federated implementation with DPSGD 
@@ -40,9 +42,20 @@ The simulation parameters are the same as for the federated learning implementat
 
 <h3>Training with Metric-DP</h3>
 The files clientLDP.py and utilsLDP.py contains our federated implementation with DP-FedAvg.
-The simulation parameters are the same as for the federated learning implementation. There is no privacy parameters are we create the noisy embeddings in a centralized way using the file ldp_noise.py. The argument noisy embeddings allows us to load the appropriate file. 
+The simulation parameters are the same as for the federated learning implementation. There are no privacy parameters as we create the noisy embeddings in a centralized setting using the file ldp_noise.py. The argument noisy embeddings allows us to load the appropriate file. 
 
 
 <h2>Evaluation</h2>
 The files annotate_datapack_with_predictions_FL_sav.py, annotate_datapack_with_predictions_FL_torch.py, eval_util.py and message_based_evaluation.py were files present in Vogt et al.'s implementation (https://early-sexual-predator-detection.gitlab.io/) that we have adapted to suit our federated set-up. Use annotate_datapack_with_predictions_FL_sav.py with sav models and annotate_datapack_with_predictions_FL_torch.py with torch models. 
 
+<h2>Additional Informations</h2>
+The file **AAAI_Appendix.pdf** presents the Additional Material of our work that is not included in the camera-ready version. You can also refer to the Arxiv version that already contains the Appendix: https://arxiv.org/abs/2501.12537 
+
+Please cite our work as follows:
+
+
+> Chehbouni, K., de Cock, M., Caporossi, G., Taik, A., Rabbany, R., & Farnadi, G. (2025). Enhancing Privacy in the Early Detection of Sexual Predators Through Federated Learning and Differential Privacy. Proceedings of the AAAI Conference on Artificial Intelligence, 39(27), 27887-27895. https://doi.org/10.1609/aaai.v39i27.35005
+
+Or
+
+> @article{Chehbouni_de Cock_Caporossi_Taik_Rabbany_Farnadi_2025, title={Enhancing Privacy in the Early Detection of Sexual Predators Through Federated Learning and Differential Privacy}, volume={39}, url={https://ojs.aaai.org/index.php/AAAI/article/view/35005}, DOI={10.1609/aaai.v39i27.35005}, abstractNote={The increased screen time and isolation caused by the COVID-19 pandemic have led to a significant surge in cases of online grooming, which is the use of strategies by predators to lure children into sexual exploitation. Previous efforts to detect grooming in industry and academia have involved accessing and monitoring private conversations through centrally-trained models or sending private conversations to a global server. In this work, we implement a privacy-preserving pipeline for the early detection of sexual predators. We leverage federated learning and differential privacy in order to create safer online spaces for children while respecting their privacy. We investigate various privacy-preserving implementations and discuss their benefits and shortcomings. Our extensive evaluation using real-world data proves that privacy and utility can coexist with only a slight reduction in utility.}, number={27}, journal={Proceedings of the AAAI Conference on Artificial Intelligence}, author={Chehbouni, Khaoula and de Cock, Martine and Caporossi, Gilles and Taik, Afaf and Rabbany, Reihaneh and Farnadi, Golnoosh}, year={2025}, month={Apr.}, pages={27887-27895} }
